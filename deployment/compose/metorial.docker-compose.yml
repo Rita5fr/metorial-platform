@@ -100,7 +100,7 @@ services:
 
   api:
     build:
-      context: ../..                          # 👈 points correctly to repo root
+      context: ../..
       dockerfile: deployment/dockerfiles/api.Dockerfile
     environment:
       - EMAIL_SES_ACCESS_KEY_ID=${EMAIL_SES_ACCESS_KEY_ID}
@@ -120,10 +120,10 @@ services:
       - ENCRYPTION_SECRET=${SECRET}
       - API_URL=${SERVICE_URL_API}
       - APP_URL=${SERVICE_URL_FRONTEND}
-      - MCP_URL=${SERVICE_URL_API/4311}
-      - PROVIDER_OAUTH_URL=${SERVICE_URL_API/4313}
-      - PORTALS_URL=${SERVICE_URL_API/4315}
-      - INTEGRATIONS_API_URL=${SERVICE_URL_API/4316}
+      - MCP_URL=${SERVICE_URL_API}:4311
+      - PROVIDER_OAUTH_URL=${SERVICE_URL_API}:4313
+      - PORTALS_URL=${SERVICE_URL_API}:4315
+      - INTEGRATIONS_API_URL=${SERVICE_URL_API}:4316
       - DENO_DEPLOY_TOKEN=placeholder
       - DENO_ORGANIZATION_ID=placeholder
       - SCM_GITHUB_CLIENT_ID=placeholder
@@ -178,12 +178,12 @@ services:
       - VITE_METORIAL_ENV=production
       - METORIAL_ENV=production
       - VITE_EXPLORER_URL=https://explorer.metorial.com
-      - VITE_MCP_API_URL=${SERVICE_URL_API/4311}
+      - VITE_MCP_API_URL=${SERVICE_URL_API}:4311
       - VITE_CORE_API_URL=${SERVICE_URL_API}
-      - VITE_PRIVATE_API_URL=${SERVICE_URL_API/4314}
+      - VITE_PRIVATE_API_URL=${SERVICE_URL_API}:4314
       - VITE_CODE_EDITOR_URL=${SERVICE_URL_FRONTEND}
       - VITE_CODE_BUCKET_API_URL=${SERVICE_URL_FRONTEND}
-      - VITE_MARKETPLACE_API_URL=${SERVICE_URL_API/4312}
+      - VITE_MARKETPLACE_API_URL=${SERVICE_URL_API}:4312
       - VITE_DASHBOARD_FRONTEND_URL=${SERVICE_URL_FRONTEND}
       - VITE_DOCS_FRONTEND_URL=https://metorial.com/docs
       - VITE_API_DOCS_FRONTEND_URL=https://metorial.com/api
